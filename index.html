@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Você</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(120deg, #f8cdda, #fbd3e9);
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  width: 600vw;
+  height: 100vh;
+  transition: transform 1.1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+  padding: 40px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.slide img {
+  width: 90%;
+  max-width: 340px;
+  border-radius: 22px;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 1.05em;
+  line-height: 1.6;
+  max-width: 360px;
+}
+
+button {
+  margin-top: 30px;
+  padding: 12px 32px;
+  font-size: 1em;
+  border: none;
+  border-radius: 30px;
+  background: #222;
+  color: white;
+}
+
+.love-btn {
+  background: linear-gradient(135deg, #ff5f8a, #ff2e63);
+  font-size: 1.1em;
+  padding: 14px 40px;
+  border-radius: 40px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<div class="slider" id="slider">
+
+  <!-- SLIDE 1 -->
+  <div class="slide active">
+    <h1>Feliz aniversário, meu amor</h1>
+    <img src="foto1.jpg">
+    <p>
+      Mesmo longe hoje, eu precisava estar aqui.
+      Porque tu merece sentir o quanto é importante pra mim.
+    </p>
+    <button onclick="next()">Continuar</button>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide">
+    <h1>Nós dois</h1>
+    <img src="foto2.jpg">
+    <p>
+      Entre tantos caminhos possíveis,
+      foi contigo que tudo começou a fazer sentido.
+    </p>
+    <button onclick="next()">Continuar</button>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="slide">
+    <h1>O que a gente vive</h1>
+    <img src="foto3.jpg">
+    <p>
+      Cada momento contigo me ensina sobre cuidado,
+      paciência e amor de verdade.
+    </p>
+    <button onclick="next()">Continuar</button>
+  </div>
+
+  <!-- SLIDE 4 -->
+  <div class="slide">
+    <h1>O que a gente constrói</h1>
+    <img src="foto4.jpg">
+    <p>
+      Não é só sobre hoje.
+      É sobre tudo que a gente ainda vai viver juntos.
+    </p>
+    <button onclick="next()">Continuar</button>
+  </div>
+
+  <!-- SLIDE 5 -->
+  <div class="slide">
+    <h1>Antes de terminar</h1>
+    <p>
+      Tem algo que eu preciso te dizer.
+    </p>
+    <button class="love-btn" onclick="next()">Eu te amo</button>
+  </div>
+
+  <!-- SLIDE 6 -->
+  <div class="slide">
+    <img src="foto5.jpg">
+    <p style="text-align:left;">
+Hoje é seu aniversário, mas sou eu que sou presenteado. Afinal, tua simples presença é o melhor presente que alguém poderia ter. Obrigado por se fazer presente nas fases mais importantes da minha vida, tanto na infância quanto na vida adulta.<br><br>
+
+Na infância, não tinha ideia de como aquela guriazinha que brincava no barro, corria com os pés descalços e vivia na beira de rio seria, um dia, tão importante para mim. Eu, um piá que era totalmente o oposto, criado em casa, introvertido.<br><br>
+
+Digo isso porquê agora, já na vida adulta, aprendo cada dia mais com tua simplicidade, por vezes tão complicada, mas sempre radiante, levando luz até pros lugares mais sombrios. Assim como entrou na minha vida tão vazia.<br><br>
+
+Nesse exato momento, a cada segundo que se passa, esses são os momentos mais felizes da minha vida. Tu é especial.<br><br>
+
+Hoje, não apenas como namorado, mas como melhor amigo, garanto minha lealdade, amizade, parceria e, principalmente, minha paixão por ti. Que esses 17 anos sejam somente o primeiro aniversário, perante todos os que vierem ao seu lado.<br><br>
+
+<b>Sou teu pra eternidade.<br>Eu te amo!</b>
+    </p>
+  </div>
+
+</div>
+
+<script>
+let index = 0;
+const slides = document.querySelectorAll(".slide");
+
+function next() {
+  slides[index].classList.remove("active");
+  index++;
+  document.getElementById("slider").style.transform =
+    "translateX(-" + (index * 100) + "vw)";
+  slides[index].classList.add("active");
+}
+</script>
+
+</body>
+</html>
